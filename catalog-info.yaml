@@ -6,14 +6,10 @@ metadata:
   labels:
     system: public-websites
   annotations:
-    example.com/service-discovery: artistweb
-    circleci.com/project-slug: github/example-org/artist-website
+    backstage.io/techdocs-ref: dir:./
   tags:
     - java
-  links:
-    - url: https://admin.example-org.com
-      title: Admin Dashboard
-      icon: dashboard
+    
 spec:
   type: website
   lifecycle: production
