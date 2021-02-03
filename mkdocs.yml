@@ -1,0 +1,9 @@
+
+site_name: 'test docs'
+
+nav:
+  - Overview: overview.md
+  - How To: index.md
+
+plugins:
+  - techdocs-core
