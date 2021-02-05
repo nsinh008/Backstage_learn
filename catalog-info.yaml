@@ -1,16 +1,40 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: API
+
 metadata:
-  name: artist-web
-  description: The place to be, for great artists
-  labels:
-    system: public-websites
+  name: weather-graphql-api
+  description: Current weather service query to fetch current weather of a given site code.
   annotations:
     backstage.io/techdocs-ref: dir:./
   tags:
-    - java
-    
+    - graphql
+    - python
+
 spec:
-  type: website
-  lifecycle: production
-  owner: artist-relations-team
+  type: graphql
+  lifecycle: experimental
+  owner: Galileo-Platform-Team@teck.com
+  definition: |
+    schema {
+      query: WeatherQueryObject
+    }
+    type WeatherQueryObject{
+      """ siteCode field is required for the query. No null value. """
+      weathercurrent(siteCode: String!): WeatherCurrentSchema
+    }
+    type WeatherCurrentSchema{
+      siteCode: String!
+      siteName: String!
+      latitude: Float!
+      longitude: Float!
+      sky: String!
+      description: String!
+      temperature: String!
+      """ can be null for non-mining sites """
+      relativeHumidity: String
+      updatedTime: String!
+      """ can be null for non-mining sites """
+      precipitationHr: String
+      """ can be null for non-mining sites """
+      snow: String
+    }
