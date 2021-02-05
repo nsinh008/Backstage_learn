@@ -1,5 +1,5 @@
 
-site_name: 'test docs'
+site_name: 'weather graphql test docs'
 
 nav:
   - Overview: overview.md
